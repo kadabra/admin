@@ -1,15 +1,7 @@
 import Vue from 'vue'
-import kadabraClient from '@kadabra/client'
+import client from '@kadabra/client'
 
-let url = window.location.href
-try {
-  if (webpackHotUpdate) {
-    url = 'localhost:7777'
-  }
-} catch(_) {}
+const url = `${window.location.hostname}:7777`
+const kadabra = client(url)
 
-const service = kadabraClient(url)
-export const feathersClient = service('users').client
-
-Vue.prototype.$K = service
-Vue.prototype.$kadabra = feathersClient
+Vue.prototype.$K = kadabra
