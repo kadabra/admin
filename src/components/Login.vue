@@ -78,7 +78,7 @@ export default {
     },
     login() {
       if (this.email && this.pass) {
-        this.kadabra().logout()
+        this.$kadabra().logout()
           .then(() => {
             this.$kadabra().authenticate({
               strategy: "local",
