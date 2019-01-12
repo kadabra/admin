@@ -3,10 +3,11 @@
   "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@kadabra/client": "^0.4.2",
+    "@kadabra/client": "^0.5.3",
     "@vue-feathers/vue-feathers": "^0.2.2",
     "simple-vuex": "^1.1.0",
     "vue": "^2.5.17",

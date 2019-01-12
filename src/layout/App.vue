@@ -21,8 +21,7 @@ export default {
     Stage
   },
   mounted() {
-    this.$kadabra
-      .authenticate()
+    this.$kadabra().authenticate()
       .then(() => {
         console.log('kadabra: automatically logged in');
         this.$store.commit('set-route', 'home')

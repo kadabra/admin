@@ -1,5 +1,5 @@
 import Vue from 'vue'
 import { VueFeathers } from '@vue-feathers/vue-feathers'
-import { feathersClient } from './kadabra'
+import { feathersClient } from '@kadabra/client'
 
-Vue.use(VueFeathers, { feathersClient })
+Vue.use(VueFeathers, { feathersClient: feathersClient() })

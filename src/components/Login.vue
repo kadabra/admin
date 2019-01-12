@@ -64,7 +64,7 @@ export default {
   methods: {
     createUser() {
       if (this.email && this.pass) {
-        this.$K('users').create({
+        this.$kadabra('users').create({
           email: this.email,
           password: this.pass,
           magic: this.magic
@@ -78,9 +78,9 @@ export default {
     },
     login() {
       if (this.email && this.pass) {
-        this.$kadabra.logout()
+        this.kadabra().logout()
           .then(() => {
-            this.$kadabra.authenticate({
+            this.$kadabra().authenticate({
               strategy: "local",
               email: this.email,
               password: this.pass
