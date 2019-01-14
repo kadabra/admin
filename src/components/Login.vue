@@ -78,23 +78,21 @@ export default {
     },
     login() {
       if (this.email && this.pass) {
-        this.$kadabra().logout()
-          .then(() => {
-            this.$kadabra().authenticate({
-              strategy: "local",
-              email: this.email,
-              password: this.pass
-            }).then(() => {
-              this.$store.commit('toggle-loggedIn')
-              console.log('kadabra: logged in')
-            }).then(() => {
-              setTimeout(() => {
-                this.$store.commit('set-route', 'home')
-              }, 400)
-            }).catch(e => {
-              console.error('kadabra: auth error', e);
-            });
-          })
+        this.$kadabra().logout().then(() => {
+          this.$kadabra().authenticate({
+            email: this.email,
+            password: this.pass
+          }).then(() => {
+            this.$store.commit('toggle-loggedIn')
+            console.log('kadabra: logged in')
+          }).then(() => {
+            setTimeout(() => {
+              this.$store.commit('set-route', 'home')
+            }, 400)
+          }).catch(e => {
+            console.error('kadabra: auth error', e);
+          });
+        })
       }
     },
     onClick() {
