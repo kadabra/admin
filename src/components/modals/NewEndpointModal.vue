@@ -63,20 +63,17 @@ export default {
   methods: {
     onClick() {
       if (this.valid) {
-        this.$F.authenticate()
-        .then(_ => {
-          this.$F.service('endpoints').create({ 
-            name: this.newEndpointName, 
-            desc: this.newEndpointDesc, 
-            private: this.newEndpointPrivate, 
-            icon: this.newEndpointIcon 
-          })
-          this.newEndpointName = ''
-          this.newEndpointDesc = '' 
-          this.newEndpointPrivate = false
-          this.newEndpointIcon = ''
-          this.$modal.hide('new-endpoint')
+        this.$kadabra('endpoints').create({ 
+          name: this.newEndpointName, 
+          desc: this.newEndpointDesc, 
+          private: this.newEndpointPrivate, 
+          icon: this.newEndpointIcon 
         })
+        this.newEndpointName = ''
+        this.newEndpointDesc = '' 
+        this.newEndpointPrivate = false
+        this.newEndpointIcon = ''
+        this.$modal.hide('new-endpoint')
       }
     }
   }

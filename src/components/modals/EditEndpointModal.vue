@@ -70,27 +70,22 @@ export default {
   methods: {
     onClickUpdate() {
       if (this.valid) {
-        this.$F.authenticate()
-        .then(_ => {
-          this.$F.service('endpoints').patch(this.endpointName, { 
+        this.$kadabra('endpoints')
+          .patch(this.endpointName, { 
             name: this.endpointName, 
             desc: this.endpointDesc, 
             private: this.endpointPrivate, 
             icon: this.endpointIcon 
           })
-          this.$modal.hide(`edit-endpoint-${this.endpointName}`)
-        })
+        this.$modal.hide(`edit-endpoint-${this.endpointName}`)
       }
     },
     onClickDelete() {
       if (this.valid) {
         var confirmed = confirm("Are you sure?");
         if (confirmed) {
-          this.$F.authenticate()
-          .then(_ => {
-            this.$F.service('endpoints').remove(this.endpointName)
-            this.$modal.hide(`edit-endpoint-${this.endpointName}`)
-          })
+          this.$kadabra.service('endpoints').remove(this.endpointName)
+          this.$modal.hide(`edit-endpoint-${this.endpointName}`)
         }
       }
     }

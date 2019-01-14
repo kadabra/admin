@@ -40,22 +40,18 @@ export default {
   },
   methods: {
     sub() {
-      this.subscription = this.$F.authenticate().then(_ => {
-        this.$F.service(this.endpoint)
+      this.subscription = this.$kadabra(this.endpoint)
         .watch()
         .find({ query: { $limit: '-1' } })
         .subscribe(d => { 
           this.results = d.data ? d.data : d
         })
-      })
     },
     remove(id) {
       const confirmation = window.confirm("Are you sure you want to delete this record?")
       if (confirmation) {
-        this.$F.authenticate().then(_ => {
-          this.$F.service(this.endpoint)
+        this.$kadabra(this.endpoint)
           .remove(id)
-        })
       }
     },
     onClickResult(result) {

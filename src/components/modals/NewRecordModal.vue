@@ -50,11 +50,11 @@ export default {
     onClickCreate() {
       if (this.valid) {
         const record = this.record
-        this.$F.authenticate().then(_ => {
-          this.$F.service(this.endpoint.name).create(JSON.parse(record)).then(_ => {
+        this.$kadabra(this.endpoint.name)
+          .create(JSON.parse(record))
+          .then(_ => {
             this.$modal.hide(`new-record-${this.endpoint.name}`)
           })
-        })
       }
     }
   }

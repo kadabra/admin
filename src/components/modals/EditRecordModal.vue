@@ -55,10 +55,10 @@ export default {
       const id = record._id
       delete record._id
       if (this.valid && (this.editing._id === id)) {
-        this.$F.authenticate().then(_ => {
-          this.$F.service(this.endpoint.name).update(id, record).then(_ => {
-            this.$modal.hide(`edit-record-${this.endpoint.name}`)
-          })
+        this.$kadabra(this.endpoint.name)
+        .update(id, record)
+        .then(_ => {
+          this.$modal.hide(`edit-record-${this.endpoint.name}`)
         })
       } else {
         console.log("Don't change the id")
