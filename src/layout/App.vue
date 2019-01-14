@@ -28,7 +28,7 @@ export default {
         this.$store.commit('set-loggedIn', true)
       })
       .catch(e => {
-        if (e.name !== 'NotAuthenticated') console.error('kadabra: auth error', e.name);
+        if (e.name !== 'NotAuthenticated') console.log('kadabra: automatic login not successful, sending to login');
         this.$store.commit('set-route', 'login')
         this.$store.commit('set-loggedIn', false)
       })
