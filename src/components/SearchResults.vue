@@ -32,10 +32,8 @@ export default {
     }
   },
   filters: {
-    noId(result) {
-      const _res = Object.assign({}, result)
-      delete _res._id
-      return _res
+    noId({ _id, ...result }) {
+      return JSON.stringify(result, null, 2)
     }
   },
   methods: {
